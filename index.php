@@ -12,7 +12,7 @@ $projectPath = '/home/kayzen/app-hotel'; // Ganti dengan path proyek Laravel kam
 
 // Pindah ke direktori proyek Laravel
 chdir($projectPath);
-$command = 'php artisan serve --host=127.0.0.1 --port=8000';
+$command = 'php artisan ser --host 172.23.247.6';
 
 // Cek apakah server sudah berjalan pada port 8000
 exec("lsof -i :8000", $output);
