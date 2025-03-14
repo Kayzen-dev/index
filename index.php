@@ -1,5 +1,9 @@
 <?php
 
+
+// Perintah pindahkan file index.php
+ // sudo mv index/index.php /var/www/html 
+
 // Tentukan project yang akan dijalankan
 $projectPath = '/home/kayzen/app-hotel'; // Ganti dengan path proyek Laravel kamu
 
