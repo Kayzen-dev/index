@@ -5,22 +5,20 @@
  // sudo mv index/index.php /var/www/html 
 
 // Tentukan project yang akan dijalankan
-$projectPath = '/home/kayzen/app-hotel'; // Ganti dengan path proyek Laravel kamu
+$projectPath = '/home/kayzen/app-hotel'; // Ganti dengan path project yang diinginkan
 
-// Pindah ke direktori proyek Laravel
+// Pindah ke direktori project
 chdir($projectPath);
-$command = 'php artisan serve --host=127.0.0.1 --port=8000';
+$command = 'php artisan serve';
 
-// Cek apakah server sudah berjalan pada port 8000
-exec("lsof -i :8000", $output);
+// Cek apakah server sudah berjalan
+exec("netstat -ano | findstr :8000", $output);
 
-// Jika server belum berjalan, jalankan server Laravel di latar belakang
 if (empty($output)) {
-    // Menjalankan perintah artisan serve di latar belakang
-    // Gunakan "nohup" untuk menjaga proses berjalan setelah browser ditutup
-    pclose(popen("nohup $command > /dev/null 2>&1 &", "r"));
+    // Jika belum berjalan, jalankan server
+    pclose(popen("start /B " . $command, "r"));
 }
 
-// Redirect ke localhost:8000
+// Redirect ke localhost
 header("Location: http://127.0.0.1:8000");
 exit;
