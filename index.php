@@ -10,9 +10,11 @@ $command = 'php artisan serve --host=127.0.0.1 --port=8000';
 // Cek apakah server sudah berjalan pada port 8000
 exec("lsof -i :8000", $output);
 
+// Jika server belum berjalan, jalankan server Laravel di latar belakang
 if (empty($output)) {
-    // Jika server belum berjalan, jalankan server Laravel di latar belakang
-    pclose(popen($command . " > /dev/null 2>&1 &", "r"));
+    // Menjalankan perintah artisan serve di latar belakang
+    // Gunakan "nohup" untuk menjaga proses berjalan setelah browser ditutup
+    pclose(popen("nohup $command > /dev/null 2>&1 &", "r"));
 }
 
 // Redirect ke localhost:8000
