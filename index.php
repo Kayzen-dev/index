@@ -23,5 +23,5 @@ if (empty($output)) {
 }
 
 // Redirect ke localhost:8000
-header("Location: http://127.0.0.1:8000");
+header("Location: http://172.23.247.6:8000");
 exit;
